@@ -9,7 +9,7 @@
 
 <h2>Cadastro de Contato</h2>
 
-<form action=""processa.php" method="post">
+<form action="processa.php" method="post">
     <label>Nome:</label><br>
     <input type="text" name="nome" require><br><br>
 
