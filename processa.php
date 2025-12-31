@@ -5,66 +5,42 @@ class Produto{
     private $estoque;
     private $preco;
 
-    public function setDescricao($descricao){
+
+    public function __construct($descricao, $estoque, $preco){
         if(is_string($descricao)){
             $this->descricao = $descricao;
         }
+
+        if(is_numeric($estoque) AND $estoque > 0){
+            $this->estoque = $estoque;
+        }
+
+        if(is_float($preco) AND $preco > 0){
+            $this->preco = $preco;
+        }
+
+        print "Todos os objetos criados\n";
+        print "Descrição: ". $descricao . "\nEstoque: " . $estoque . "\nPreço: " . $preco;
+    }
+
+    public function __destruct(){
+        print "\ntodos os objetos destruidos";
     }
 
     public function getDescricao(){
         return $this->descricao;
     }
 
-    public function setEstoque($estoque){
-        if(is_numeric($estoque) AND $estoque > 0){
-            $this->estoque = $estoque;
-        }
-    }
-
     public function getEstoque(){
         return $this->estoque;
     }
 
-}
-
-class Livro{
-    private $titulo;
-    private $autor;
-    private $paginas;
-    private $disponivel;
-
-    public function setPaginas($paginas){
-        if($paginas > 0){
-            $this->paginas = $paginas;
-        }
+    public function getPreco(){
+        return $this->preco;
     }
-
-    public function getPaginas(){
-        return $this->paginas;
-    }
-
-    public function setDisponivel($disponivel){
-        if(is_bool($disponivel)){
-            $this->disponivel = $disponivel;
-        }
-    }
-
-    public function getDisponivel(){
-        return $this->disponivel;
-    }
-
 
 }
 
-$p1 = new Produto;
-$p1->setDescricao('Chocolate');
-$p1->setEstoque(10);
+$p1 = new Produto("produto1", 200, 5.5);
 
-
-
-
-$livro = new Livro;
-$livro->setPaginas(300);
-$livro->setDisponivel(true);
-
-echo "Paginas:" . ($livro->getPaginas()) . ($livro->getDisponivel() ? "\nsim" : "\nNão");
+unset($p1);
