@@ -9,7 +9,6 @@ class Fabricante{
         $this->nome = $nome;
         $this->endereco = $endereco;
         $this->documento = $documento;
-
     }
 
     public function getNome(){

@@ -5,8 +5,6 @@ class Produto{
     private $estoque;
     private $preco;
     private $fabricante;
-    private $caracteristicas;
-
 
     public function __construct($descricao, $estoque, $preco){
         $this->descricao = $descricao;
@@ -18,20 +16,12 @@ class Produto{
         return $this->descricao;
     }
 
+    // aqui está a classe inteira Fabricante
     public function setFabricante(Fabricante $f){
         $this->fabricante = $f;
     }
 
     public function getFabricante(){
-        return $this->fabricante;
+        return  $this->fabricante;
     }
-
-    public function addCaracteristica($nome, $valor){
-        $this->caracteristicas[] = new Caracteristica($nome, $valor);
-    }
-
-    public function getCaracteristica(){
-        return $this->caracteristicas;
-    }
-
 }
